@@ -4,3 +4,60 @@
   padding: 2rem;
   text-align: center;
 }
+
+.quiz-title{
+  font-size: 2.5em;
+}
+
+.quiz-text{
+  font-size: 1.3em;
+}
+
+.gameOptions-container{
+  margin: 1em;
+  color: #fff;
+}
+
+.select-container {
+	margin-bottom: 1.1em;
+	width: 550px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.custom-select {
+	border: 0;
+	font: inherit;
+	width: 100%;
+	height: 2em;
+	padding: 0 1em 0 1em;
+	color: #ffffff;
+	border-radius: 0.25em;
+	box-shadow: 0 0 0.6em 0 rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+  background-color: rgb(68, 68, 68);
+}
+
+.custom-label {
+	font-size: 1.1em;
+	font-weight: 700;
+	width: 250px;
+}
+
+.btn-start{
+  width: 120px;
+  height: 50px;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: rgb(68, 226, 89);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-start:active {
+  -webkit-box-shadow: inset 0 0 0.6em 0 rgba(0, 0, 0, 0.7);
+     -moz-box-shadow: inset 0 0 0.6em 0 rgba(0, 0, 0, 0.7);
+          box-shadow: inset 0 0 0.6em 0 rgba(0, 0, 0, 0.7);
+}
