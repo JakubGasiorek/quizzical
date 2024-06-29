@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import getQuestions from '../src/services/getQuestions';
+import './App.css';
 
 export default function App() {
 	const [gameOptions, setGameOptions] = useState({
@@ -8,6 +9,7 @@ export default function App() {
 		difficulty: "",
 		type: "",
 	});
+	const [loading, setLoading] = useState(false);
 
 	const handleChange = event => {
 		const { name, value } = event.target;
@@ -19,8 +21,21 @@ export default function App() {
 
 	const navigate = useNavigate();
 
-	const goToQuizPage = () => {
-		navigate('/quiz', { state: { gameOptions } });
+	const goToQuizPage = async () => {
+		setLoading(true);
+		try {
+			const questions = await getQuestions(gameOptions);
+			if (questions && questions.length > 0) {
+				navigate('/quiz', { state: { gameOptions, questions } });
+			} else {
+				alert('Failed to fetch questions. Please try again.');
+			}
+		} catch (error) {
+			console.error("Error fetching questions:", error);
+			alert('Failed to fetch questions. Please try again.');
+		} finally {
+			setLoading(false);
+		}
 	}
 
 	return (
@@ -98,7 +113,9 @@ export default function App() {
 				</div>
 			</div>
 
-			<button className='btn-start' onClick={goToQuizPage}>Start quiz</button>
+			<button className='btn-start' onClick={goToQuizPage} disabled={loading}>
+				{loading ? 'Loading...' : 'Start quiz'}
+			</button>
 		</main>
 	)
 }
