@@ -1,4 +1,4 @@
-.answer-button{
+.answer-button {
   width: fit-content;
   height: 30px;
   font-size: 1em;
@@ -10,15 +10,36 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-.selected{
+.correct {
+  background-color: rgb(68, 226, 89);
+  color: #000;
+}
+
+.incorrect {
+  background-color: rgb(167, 54, 54);
+  color: #000;
+  opacity: 70%;
+}
+
+.selected {
   background-color: #fff;
   color: #000;
 }
 
-.question-text{
+.question-text {
   width: fit-content;
 }
-.answer-buttons{
+
+.answers-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.answer-buttons {
   margin-bottom: 1em;
   width: fit-content;
+}
+
+.icon {
+  font-size: 1.5em;
 }
