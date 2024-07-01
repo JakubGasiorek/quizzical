@@ -1,8 +1,26 @@
-/* eslint-disable react/prop-types */
 import { decode } from "html-entities";
+import PropTypes from "prop-types"; // Import PropTypes for prop validation
 import "./Question.css";
 
 export default function Question(props) {
+  // Define PropTypes for type checking and documentation
+  Question.propTypes = {
+    id: PropTypes.string.isRequired,
+    question: PropTypes.string.isRequired,
+    correctAnswer: PropTypes.string.isRequired,
+    selectedAnswer: PropTypes.string.isRequired,
+    showAnswer: PropTypes.bool.isRequired,
+    allAnswers: PropTypes.arrayOf(
+      PropTypes.shape({
+        text: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    handleSelectAnswer: PropTypes.func.isRequired,
+    showScore: PropTypes.bool.isRequired,
+  };
+
+  // Function to determine button classes based on answer state
   const getButtonClass = (answer) => {
     let buttonClass = "answer-button";
     if (props.showAnswer) {
@@ -24,6 +42,7 @@ export default function Question(props) {
     return "";
   };
 
+  // Map allAnswers to buttons displaying answer choices
   const answerButtons = props.allAnswers.map((answer) => (
     <button
       key={answer.id}

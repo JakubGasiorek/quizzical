@@ -10,7 +10,8 @@ export default function App() {
     type: "",
   });
   const [loading, setLoading] = useState(false);
-
+  
+  // Function to handle changes in game options select inputs
   const handleChange = (event) => {
     const { name, value } = event.target;
     setGameOptions((prevGameOptions) => ({
@@ -21,6 +22,7 @@ export default function App() {
 
   const navigate = useNavigate();
 
+  // Function to navigate to the quiz page and fetch questions
   const goToQuizPage = async () => {
     setLoading(true);
     try {
@@ -38,6 +40,7 @@ export default function App() {
     }
   };
 
+  // Render the App component with quiz title, game options selectors, and start quiz button
   return (
     <main>
       <h1 className="quiz-title">Quizzical</h1>

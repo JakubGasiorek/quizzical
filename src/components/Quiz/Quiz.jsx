@@ -19,6 +19,7 @@ export default function Quiz() {
     questions: [],
   };
 
+  // Function to shuffle answers randomly
   function shuffleAnswers(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -27,6 +28,7 @@ export default function Quiz() {
     return array;
   }
 
+  // Effect to format questions when questions state changes
   useEffect(() => {
     if (questions.length === 0) {
       setError(true);
@@ -55,7 +57,7 @@ export default function Quiz() {
       <div>Error: No questions available or failed to fetch questions.</div>
     );
   }
-
+  // Function to handle selecting an answer for a question
   const handleSelectAnswer = (questionId, answer) => {
     if (!showScore) {
       setQuestionsArr((prevQuestionsArr) =>
@@ -84,6 +86,7 @@ export default function Quiz() {
     navigate("/");
   };
 
+  // Map questions array to Question components for rendering
   const questionElements = questionsArr.map((question) => (
     <Question
       key={question.id}
@@ -109,17 +112,17 @@ export default function Quiz() {
         >
           Check answers
         </button>
-      </div>
-      {showScore && (
-        <>
+        {showScore && (
           <div className="score-container">
             You scored {correctAnswersCount} out of {questionsArr.length}
           </div>
+        )}
+        {showScore && (
           <button className="btn-check play-again" onClick={handleGoToStart}>
             Play again
           </button>
-        </>
-      )}
+        )}
+      </div>
     </main>
   );
 }
