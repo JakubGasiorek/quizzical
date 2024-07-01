@@ -115,7 +115,7 @@ export default function Quiz() {
           <div className="score-container">
             You scored {correctAnswersCount} out of {questionsArr.length}
           </div>
-          <button className="btn-start" onClick={handleGoToStart}>
+          <button className="btn-check play-again" onClick={handleGoToStart}>
             Play again
           </button>
         </>

@@ -12,11 +12,13 @@
 
 .correct {
   background-color: rgb(68, 226, 89);
+  border: 1px solid rgb(68, 226, 89);
   color: #000;
 }
 
 .incorrect {
   background-color: rgb(167, 54, 54);
+  border: 1px solid rgb(167, 54, 54);
   color: #000;
   opacity: 70%;
 }
@@ -33,6 +35,7 @@
 .answers-container {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .answer-buttons {
@@ -42,4 +45,52 @@
 
 .icon {
   font-size: 1.5em;
+  margin-top: -0.5em;
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 1024px) {
+  .answer-button {
+    height: 28px;
+    font-size: 0.9em;
+  }
+
+  .icon {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 768px) {
+  .answers-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    justify-items: center;
+  }
+
+  .answer-button {
+    width: 100%;
+    max-width: 300px;
+    height: 26px;
+    font-size: 0.8em;
+  }
+
+  .icon {
+    font-size: 1.2em;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .answer-button {
+    width: 100%;
+    max-width: 200px;
+    height: 24px;
+    font-size: 0.7em;
+  }
+
+  .icon {
+    font-size: 1em;
+  }
 }
